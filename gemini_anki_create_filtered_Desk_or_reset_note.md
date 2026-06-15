@@ -34,5 +34,39 @@ Nếu bạn muốn xóa sạch lịch sử và coi như chưa từng học qua c
 > ⚠️ **Lưu ý:** Sau khi làm cách này, toàn bộ các thẻ đó sẽ chuyển thành màu xanh lá cây/xanh dương nhạt (thẻ New) và xếp hàng chờ bạn học. Tuy nhiên, nếu số lượng thẻ quá lớn và giới hạn học thẻ mới mỗi ngày (**New cards/day**) trong cấu hình Deck Linux của bạn quá thấp (ví dụ chỉ 20 thẻ/ngày), bạn sẽ không thể học hết ngay trong hôm nay được. Bạn cần vào Option của Deck Linux để tăng tạm thời `New cards/day` lên tối đa thì ngày mai mới kịp thi.
 >
 >
+---
+Đoạn văn trên trích từ tài liệu hướng dẫn của Anki, giải thích về tính năng **Custom Study (Học tùy chỉnh)**. Đây là cách nhanh nhất và tiện nhất để bạn tạo ra một bộ bài lọc (Filtered Deck) thông qua các thiết lập có sẵn (presets) mà không cần phải tự gõ các câu lệnh tìm kiếm phức tạp.
 
+Dưới đây là bản dịch và giải thích chi tiết, dễ hiểu cho từng phần:
+
+## 1. Khái niệm chung về Custom Study
+
+> *Cách dễ nhất để tạo một bộ bài lọc (filtered deck) là sử dụng nút **Custom Study**, nút này xuất hiện ở dưới cùng màn hình khi bạn bấm chọn một Deck nào đó. Nó cung cấp các bộ lọc có sẵn rất tiện lợi cho các tác vụ phổ biến, chẳng hạn như ôn lại các thẻ bạn đã bấm trượt (nhấn nút Again) trong ngày hôm đó. Nó sẽ tạo ra một deck lọc tên là **"Custom Study Session"** và tự động mở ra cho bạn học.*
+>
+> *Nếu một deck tên "Custom Study Session" đã tồn tại từ trước, nó sẽ bị xóa sạch thẻ bên trong trước khi nạp các thẻ mới vào. Nếu bạn muốn giữ lại deck tùy chỉnh này để học lâu dài, bạn chỉ cần đổi tên (Rename) nó ở danh sách Deck ngoài màn hình chính.*
+>
+>
+
+## 2. Giải thích chi tiết các tùy chọn (Options)
+
+Khi bạn bấm vào **Custom Study**, Anki sẽ cho bạn các lựa chọn sau:
+
+### 📈 Tăng giới hạn thẻ trong ngày (Không tạo deck mới)
+
+- **Increase today’s new card limit (Tăng giới hạn thẻ mới hôm nay):** Thêm thẻ mới vào ngay deck bạn đang học.
+- *Lưu ý:* Khác với các tùy chọn bên dưới, tính năng này **không** tạo ra deck lọc mới, mà nó trực tiếp sửa đổi (tăng tạm thời) giới hạn của deck hiện tại.
+- **Increase today’s review card limit (Tăng giới hạn thẻ ôn tập hôm nay):** Nếu số thẻ đến hạn (due) hôm nay quá nhiều và bị nghẽn lại do giới hạn hàng ngày (Daily review limit) bạn cài đặt trước đó, tùy chọn này cho phép bạn "mở khóa" để xem thêm các thẻ bị nghẽn đó. Tương tự như thẻ mới, nó sửa đổi trực tiếp trên deck hiện tại chứ không tạo deck mới.
+
+### 🧠 Ôn tập chuyên sâu (Tạo deck lọc "Custom Study Session")
+
+- **Review forgotten cards (Ôn lại các thẻ bị quên):** Gom lại và hiển thị tất cả các thẻ mà bạn đã lỡ bấm **Again (Số 1)** trong vòng số ngày mà bạn chỉ định (ví dụ: gom các thẻ bị bấm trượt trong vòng 3 ngày qua để học lại).
+- **Review ahead (Học trước thời hạn):** Học trước những thẻ sắp đến hạn trong tương lai gần (theo số ngày bạn chỉ định).
+- *Mẹo nhỏ:* Cách này cực kỳ hữu ích để bạn "cày trước" bài vở trước khi đi du lịch hoặc nghỉ lễ. Tuy nhiên, nó sẽ không có tác dụng nhiều với các thẻ bạn vừa mới học xong.
+- **Preview new cards (Xem trước thẻ mới):** Xem qua các thẻ bạn vừa mới thêm vào gần đây, nhưng **không** kích hoạt thuật toán học (tức là bạn bấm trả lời xong thì trạng thái của thẻ vẫn giữ nguyên là thẻ mới tinh, không bị chuyển thành thẻ đang học).
+- **Study by card state or tag (Học theo trạng thái thẻ hoặc theo Tag):** **(Chính là tính năng bạn đang cần cho kỳ thi ngày mai!)**
+- Nó cho phép bạn bốc một số lượng thẻ nhất định từ deck hiện tại ra để học.
+- Bạn có thể chọn: chỉ lấy thẻ mới (New), chỉ lấy thẻ đến hạn (Due), hoặc lấy tất cả các thẻ (All).
+- Sau khi bấm nút **"Choose Tags"**, bạn có thể tích chọn riêng tag `permissions` để học.
+- *Lời khuyên từ tài liệu:* Nếu bạn muốn gom **tất cả sạch sành sanh** các thẻ trong tag đó ra học (ví dụ để ôn thi trước một kỳ thi lớn), hãy điền số lượng thẻ cần lấy lớn hơn tổng số thẻ bạn đang có trong deck (ví dụ điền hẳn `9999`).
 Chúc bạn "cày" kịp đêm nay và đạt kết quả tốt vào ngày mai! Bạn có gặp khó khăn ở bước tìm kiếm hay thiết lập filter không?
+
