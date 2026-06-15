@@ -69,4 +69,33 @@ Khi bạn bấm vào **Custom Study**, Anki sẽ cho bạn các lựa chọn sau
 - Sau khi bấm nút **"Choose Tags"**, bạn có thể tích chọn riêng tag `permissions` để học.
 - *Lời khuyên từ tài liệu:* Nếu bạn muốn gom **tất cả sạch sành sanh** các thẻ trong tag đó ra học (ví dụ để ôn thi trước một kỳ thi lớn), hãy điền số lượng thẻ cần lấy lớn hơn tổng số thẻ bạn đang có trong deck (ví dụ điền hẳn `9999`).
 Chúc bạn "cày" kịp đêm nay và đạt kết quả tốt vào ngày mai! Bạn có gặp khó khăn ở bước tìm kiếm hay thiết lập filter không?
+---
+Đoạn tài liệu này hướng dẫn cách **Tự tạo Bộ bài lọc bằng tay (Manually)** dành cho người dùng nâng cao và giải thích chi tiết ý nghĩa của các **Chế độ sắp xếp thứ tự thẻ (Order)**.
+
+Dưới đây là phần giải thích ngắn gọn, đi thẳng vào trọng tâm để bạn nắm bắt ngay lập tức:
+
+## 1. Tạo Filtered Deck bằng tay (Creating Manually)
+
+- **Tự do tùy biến:** Thay vì dùng các mẫu có sẵn của *Custom Study*, bạn vào **Tools -> Create Filtered Deck** để tự gõ lệnh tìm kiếm (ví dụ: `tag:permissions`). Bạn có thể dùng mọi lệnh tìm kiếm giống như trong cửa sổ Browse.
+- **Cơ chế hoạt động:** Khi bạn bấm **Build**, Anki sẽ **tạm thời** bốc các thẻ thỏa mãn điều kiện từ deck gốc bỏ vào deck lọc này.
+- **Nút Rebuild (Làm mới):** Nếu ngày nào bạn cũng muốn gom thẻ theo điều kiện đó để học (ví dụ: gom thẻ tag `permissions` để kiểm tra bài cũ mỗi sáng), bạn chỉ cần bấm **Rebuild** ở dưới đáy màn hình của Deck đó để Anki tự quét và gom thẻ mới vào lại.
+- **Ngoại lệ:** Deck lọc **KHÔNG THỂ** hút các thẻ đang bị **Hoãn (Suspended)**, **Ẩn tạm thời (Buried)**, hoặc các thẻ **đang nằm ở một Deck lọc khác**. Đó là lý do vì sao đôi khi bạn tìm trong Browser thấy có thẻ, nhưng khi Build deck lọc thì thẻ không nhảy vào.
+- **Limit & Second Filter:** * *Limit:* Giới hạn số lượng thẻ được hút vào.
+- *Enable second filter:* Cho phép bạn gom thẻ bằng 2 điều kiện tìm kiếm song song (Ví dụ: Nhánh 1 gom 50 thẻ cũ đến hạn học trước, Nhánh 2 gom thêm 10 thẻ mới tinh học sau).
+
+## 2. Ý nghĩa các chế độ sắp xếp (Order)
+
+Khi số lượng thẻ thỏa mãn điều kiện **lớn hơn** giới hạn (Limit) bạn đặt ra, Anki sẽ ưu tiên bốc các thẻ theo thứ tự bạn chọn dưới đây và bỏ qua các thẻ ở cuối danh sách:
+
+- **Oldest seen first:** Ưu tiên những thẻ đã lâu lắm rồi bạn chưa ôn lại.
+- **Random:** Xáo trộn ngẫu nhiên toàn bộ thẻ (Không theo quy luật nào).
+- **Increasing intervals:** Ưu tiên thẻ có khoảng cách lặp lại (interval) **ngắn nhất** trước (thường là thẻ khó, thẻ mới học).
+- **Decreasing intervals:** Ưu tiên thẻ có khoảng cách lặp lại **dài nhất** trước (thẻ bạn đã nhớ rất sâu).
+- **Most lapses:** Ưu tiên những thẻ bạn **bị bấm sai (Again) nhiều lần nhất** (Cực tốt để trị các thẻ "lỳ lợm" hay quên trước khi đi thi).
+- **Order added:** Thẻ nào tạo trước học trước (theo ngày tạo).
+- **Latest added first:** Thẻ nào mới tạo gần đây học trước (ngược với cái trên).
+- **Order due:** Thẻ nào đến hạn trước thì học trước.
+- **Relative overdueness (Độ quá hạn tương đối - Rất thông minh):** Ưu tiên hiển thị những thẻ mà **khả năng cao là bạn đã quên** dựa trên thuật toán.
+- *Nếu dùng thuật toán cũ (SM-2):* So sánh tỷ lệ ngày quá hạn / khoảng cách lặp. Ví dụ: Thẻ 5 ngày mà trễ mất 2 ngày (trễ 40%) sẽ được học trước thẻ 10 ngày mà trễ 3 ngày (trễ 30%).
+- *Nếu dùng thuật toán mới (FSRS):* Tính toán dựa trên **Khả năng gợi nhớ (Retrievability)** thực tế của từng thẻ kết hợp với mục tiêu duy trì trí nhớ (Desired Retention) bạn cài đặt. Thẻ nào có phần trăm nhớ tụt sâu nhất sẽ hiện lên đầu tiên.
 
